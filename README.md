@@ -20,11 +20,21 @@
 
 ---
 
+##프로그램
+- 프로그램 구성도
+  
+<img width="1180" height="656" alt="화면 캡처 2025-08-12 131602" src="https://github.com/user-attachments/assets/550ca945-2597-4934-bd5f-f9778c147e58" />
+
+--
 ## 데이터베이스 설계
 - 논리적 데이터베이스
+
 <img width="1045" height="317" alt="논리설계" src="https://github.com/user-attachments/assets/d51843fd-12c6-43d8-b7cb-08639f6f858e" />
+
 - 물리적 데이터베이스
+  
 <img width="1036" height="360" alt="물리설계" src="https://github.com/user-attachments/assets/9ce858a8-f785-4c28-a124-2096bd9137f3" />
+
 ---
 
 ## CRUD 요구사항
@@ -40,4 +50,5 @@
 | Delete     | 7. 기존 데이터 삭제       |회원 정보 삭제  (종속된 데이터 전부 삭제)
 
 - ❗❗ **전체 조회 및 상세 조회 시, 연관 테이블과의 조인 결과를 포함한다.**
+
 
