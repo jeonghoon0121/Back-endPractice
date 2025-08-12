@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="selectLastMemberCode">
+        SELECT MAX(A.MEM_ID)
+          FROM MEMBER A
+    </entry>
+    <entry key="selectLastWorkoutLogCode">
+        SELECT MAX(A.LOG_ID)
+        FROM WORKOUTLOG A
+    </entry>
+    <entry key="selectLastExerciseCode">
+        SELECT MAX(A.EXR_ID)
+        FROM EXERCISE A
+    </entry>
+    <entry key="selectAllMemberList">
+        SELECT A.MEM_ID
+             , A.MEM_NM
+             , A.MEM_DATE
+          FROM MEMBER A
+    </entry>
+    <entry key="selectAll">
+        SELECT *
+        FROM MEMBER A
+        JOIN WORKOUTLOG B ON A.MEM_ID =B.MEM_ID
+    </entry>
+
+    <entry key="insertMember">
+        INSERT INTO MEMBER
+        (
+          MEM_ID
+        , MEM_NM
+        , MEM_DATE
+        )
+        VALUES
+        (
+          ?
+        , ?
+        , ?
+        )
+    </entry>
+    <entry key="insertWorkoutLog">
+        INSERT INTO WORKOUTLOG
+        (
+        MEM_ID
+        , LOG_ID
+        , LOG_DATE
+        , LOG_INTIME
+        , LOG_OUTTIME
+        )
+        VALUES
+        (
+        ?
+        ,?
+        ,?
+        ,?
+        ,?
+        )
+    </entry>
+    <entry key="insertExerciseLog">
+        INSERT INTO EXERCISE
+        (
+        LOG_ID
+        , EXR_ID
+        , EXR_nm
+        , EXR_SET
+        , EXR_CNT
+        )
+        VALUES
+        (
+        ?
+        ,?
+        ,?
+        ,?
+        ,?
+        )
+    </entry>
+    <entry key="deleteMember">
+        DELETE
+        FROM MEMBER
+        WHERE MEM_ID = ?
+    </entry>
+    <entry key="selectMemberById">
+        SELECT
+        MEM_ID,
+        MEM_NM,
+        MEM_DATE
+        FROM MEMBER
+        WHERE
+        MEM_ID = ?
+    </entry>
+
+
+    <entry key="selectAllData">
+        SELECT
+        M.MEM_ID,
+        M.MEM_NM,
+        M.MEM_DATE,
+        WL.LOG_ID,
+        WL.LOG_DATE,
+        WL.LOG_INTIME,
+        WL.LOG_OUTTIME
+        FROM MEMBER M
+        JOIN WORKOUTLOG WL ON M.MEM_ID = WL.MEM_ID
+        WHERE M.MEM_ID = ?
+    </entry>
+    <entry key="selectAllData2">
+        SELECT
+        M.MEM_ID,
+        M.MEM_NM,
+        M.MEM_DATE,
+        WL.LOG_ID,
+        WL.LOG_DATE,
+        WL.LOG_INTIME,
+        WL.LOG_OUTTIME,
+        E.EXR_ID,
+        E.EXR_nm,
+        E.EXR_SET,
+        E.EXR_CNT
+        FROM MEMBER M
+        JOIN WORKOUTLOG WL ON M.MEM_ID = WL.MEM_ID
+        JOIN EXERCISE E ON WL.LOG_ID = E.LOG_ID
+        WHERE M.MEM_ID = ?
+    </entry>
+
+    <entry key="updateMember">
+        UPDATE MEMBER
+        SET MEM_NM = ?,
+        MEM_DATE = ?
+        WHERE MEM_ID = ?
+    </entry>
+
+
+</properties>
